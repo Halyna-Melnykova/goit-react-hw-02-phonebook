@@ -7,6 +7,13 @@
   justify-content: space-between;
   padding: 10px;
 }
-.contactText {
-  margin: 0;
+
+.button {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  background-color: lightskyblue;
 }

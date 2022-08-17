@@ -15,20 +15,21 @@ class App extends Component {
     filter: '',
   };
   formSubmitHeandler = ({ name, number }) => {
+    const notUniqeContact = this.state.contacts.find(
+      contact => contact.name === name
+    );
+
+    if (notUniqeContact) {
+      return alert(`${name} is already in contacts`);
+    }
+
     const newContact = {
       id: nanoid(),
       name,
       number,
     };
+
     this.setState(({ contacts }) => {
-      // const oldContact = contacts.find(
-      //   contact => contact.name === newContact.name
-      // );
-
-      // if (oldContact.name === newContact.name) {
-      //   return alert(`${newContact.name} is already in contacts`);
-      // }
-
       return { contacts: [newContact, ...contacts] };
     });
   };
@@ -36,7 +37,6 @@ class App extends Component {
   changeFilter = event => {
     const { value } = event.currentTarget;
     this.setState({ filter: value });
-    // console.log(value);
   };
 
   deleteContact = contactId => {
