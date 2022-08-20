@@ -8,6 +8,14 @@ class ContactForm extends Component {
     number: '',
   };
 
+  static defaultProps = {
+    onSubmit: () => {},
+  };
+
+  static propTypes = {
+    onSubmit: PropTypes.func,
+  };
+
   handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
@@ -65,6 +73,6 @@ class ContactForm extends Component {
 
 export default ContactForm;
 
-ContactForm.propTypes = {
-  formSubmitHeandler: PropTypes.func,
-};
+// ContactForm.propTypes = {
+//   formSubmitHeandler: PropTypes.func,
+// };
